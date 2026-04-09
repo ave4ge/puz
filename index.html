@@ -1,70 +1,60 @@
-<p><!DOCTYPE html><br>
-<html lang="en"><br>
-<head><br>
- <meta charset="UTF-8"><br>
- <meta name="viewport" content="width=device-width, initial-scale=1.0"><br>
- <title>???</title><br>
- <style><br>
- /* Базовые настройки страницы */<br>
- body {<br>
- margin: 0;<br>
- padding: 0;<br>
- background-color: black;<br>
- color: white;<br>
- font-family: 'Courier New', monospace;<br>
- /* Занимаем всю высоту экрана */<br>
- height: 100vh;<br>
- /* ВАЖНО: Убираем display: flex, чтобы позиционировать элементы по-разному */<br>
- position: relative;<br>
- overflow: hidden;<br>
- }</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look at the end</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<p> /* Основная надпись: строго по центру экрана */<br>
- .clue {<br>
- /* Центрирование через абсолютное позиционирование */<br>
- position: absolute;<br>
- top: 50%;<br>
- left: 50%;<br>
- transform: translate(-50%, -50%);<br>
- <br>
- /* Стили текста */<br>
- font-size: 5vw;<br>
- letter-spacing: 10px;<br>
- text-transform: uppercase;<br>
- text-align: center;<br>
- white-space: nowrap;<br>
- <br>
- /* Анимация пульсации с вендорными префиксами */<br>
- -webkit-animation: pulse 3s infinite;<br>
- animation: pulse 3s infinite;<br>
- }</p>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
 
-<p> /* Скрытая подсказка: в правом нижнем углу */<br>
- .hidden-hint {<br>
- position: absolute;<br>
- bottom: 10px;<br>
- right: 15px;<br>
- <br>
- /* Стили текста */<br>
- font-size: 14px;<br>
- color: #1a1a1a; /* Очень тёмно-серый, почти чёрный */<br>
- }</p>
+        body {
+            background-color: #000000;
+            position: relative;
+            font-family: 'Courier New', monospace;
+        }
 
-<p> /* Ключевые кадры анимации */<br>
- @-webkit-keyframes pulse {<br>
- 0% { opacity: 0.2; }<br>
- 50% { opacity: 1; }<br>
- 100% { opacity: 0.2; }<br>
- }<br>
- @keyframes pulse {<br>
- 0% { opacity: 0.2; }<br>
- 50% { opacity: 1; }<br>
- 100% { opacity: 0.2; }<br>
- }<br>
- </style><br>
-</head><br>
-<body><br>
- <div class="clue">Look at the end</div><br>
- <div class="hidden-hint">TROLL?</div><br>
-</body><br>
-</html></p>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: clamp(30px, 8vw, 80px);
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            font-weight: bold;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.15; }
+            50% { opacity: 1; }
+            100% { opacity: 0.15; }
+        }
+
+        .hint {
+            position: absolute;
+            bottom: 12px;
+            right: 18px;
+            color: #1a1a1a;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">Look at the end</div>
+    <div class="hint">RotateROT13</div>
+</body>
+</html>
